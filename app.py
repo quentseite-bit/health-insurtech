@@ -51,7 +51,7 @@ if not st.session_state.consentement:
     pour estimer vos frais médicaux annuels.
  
     Conformément au RGPD :
-    - Vos données ne sont pas stockées
+    - Celles-ci ne sont pas stockées
     - Elles sont traitées uniquement pendant la simulation
     - Vous pouvez fermer l'application à tout moment
     """)
@@ -215,3 +215,4 @@ elif page == "Simulation tarif":
  
         else:
             st.write("Renseignez vos informations et cliquez sur Estimer mes frais.")
+
