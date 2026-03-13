@@ -27,7 +27,7 @@ if not st.session_state.authentifie:
     identifiant  = st.text_input("Identifiant")
     mot_de_passe = st.text_input("Mot de passe", type="password")
     if st.button("Se connecter"):
-        if identifiant == "admin" and mot_de_passe == "insurtech2024":
+        if identifiant == "admin" and mot_de_passe == "admin":
             st.session_state.authentifie = True
             logging.info(f"Connexion reussie - utilisateur : {identifiant}")
             st.rerun()
@@ -213,3 +213,4 @@ elif page == "Simulation tarif":
  
         else:
             st.write("Renseignez vos informations et cliquez sur Estimer mes frais.")
+
