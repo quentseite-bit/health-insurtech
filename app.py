@@ -15,6 +15,26 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(message)s"
 )
+
+# Authentification
+
+if "authentifie" not in st.session_state:
+    st.session_state.authentifie = False
+ 
+if not st.session_state.authentifie:
+    st.title("Health-InsurTech - Connexion")
+    st.markdown("---")
+    identifiant  = st.text_input("Identifiant")
+    mot_de_passe = st.text_input("Mot de passe", type="password")
+    if st.button("Se connecter"):
+        if identifiant == "admin" and mot_de_passe == "insurtech2024":
+            st.session_state.authentifie = True
+            logging.info(f"Connexion reussie - utilisateur : {identifiant}")
+            st.rerun()
+        else:
+            logging.warning(f"Tentative de connexion echouee - identifiant : {identifiant}")
+            st.error("Identifiant ou mot de passe incorrect")
+    st.stop()
  
 st.set_page_config(page_title="Health-InsurTech", layout="wide")
  
