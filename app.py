@@ -104,6 +104,8 @@ rf, feature_names, r2, insurance_viz = charger_et_entrainer()
 st.sidebar.title("Appli Health-Insur Tech")
 st.sidebar.markdown("---")
 page = st.sidebar.radio("Navigation", ["Dashboard", "Simulation tarif"])
+st.sidebar.markdown("---")
+st.sidebar.caption(f"Modele : Random Forest | R2 = {r2:.4f}")
 
 # Page Dashboard
 
@@ -213,4 +215,3 @@ elif page == "Simulation tarif":
  
         else:
             st.write("Renseignez vos informations et cliquez sur Estimer mes frais.")
-
