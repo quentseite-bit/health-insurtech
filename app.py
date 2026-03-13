@@ -6,8 +6,15 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
 import warnings
+import logging
+from datetime import datetime
 warnings.filterwarnings("ignore")
- 
+
+logging.basicConfig(
+    filename="logs.txt",
+    level=logging.INFO,
+    format="%(asctime)s - %(message)s"
+)
  
 st.set_page_config(page_title="Health-InsurTech", layout="wide")
  
@@ -170,6 +177,8 @@ elif page == "Simulation tarif":
             }])[feature_names]
 
             estimation = rf.predict(donnees_client)[0]
+
+            logging.info(f"Simulation - age={age} bmi={bmi} enfants={children} fumeur={smoker} region={region} estimation={estimation:,.0f}")
  
             st.success(f"Estimation : {estimation:,.0f} EUR/an")
             st.caption(f"Soit environ {estimation/12:,.0f} EUR/mois")
